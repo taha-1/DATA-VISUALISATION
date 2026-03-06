@@ -1,0 +1,58 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Uneven Distribution of Anti-Discrimination Workshops Across Irish Provinces",
+    "subtitle": "Workshops per 100 schools (2022–2025)"
+  },
+  "width": 600,
+  "height": 350,
+  "data": {
+    "url": "https://raw.githubusercontent.com/taha-1/DATA-VISUALISATION/main/sari_workshops_per_100_schools.csv"
+  },
+  "layer": [
+    {
+      "mark": {"type": "bar", "size": 90},
+      "encoding": {
+        "x": {
+          "field": "province",
+          "type": "nominal",
+          "sort": ["Leinster", "Ulster", "Munster", "Connacht"],
+          "title": "Province",
+          "axis": {"labelAngle": 0}
+        },
+        "y": {
+          "field": "workshops_per_100_schools",
+          "type": "quantitative",
+          "title": "Workshops per 100 Schools",
+          "axis": {"grid": true}
+        },
+        "color": {
+          "field": "province",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": ["Leinster", "Munster", "Connacht", "Ulster"],
+            "range": ["#1f77b4", "#2ca02c", "#ff7f0e", "#d62728"]
+          }
+        }
+      }
+    },
+    {
+      "mark": {"type": "text", "dy": -6, "fontWeight": "bold"},
+      "encoding": {
+        "x": {
+          "field": "province",
+          "type": "nominal",
+          "sort": ["Leinster", "Ulster", "Munster", "Connacht"]
+        },
+        "y": {"field": "workshops_per_100_schools", "type": "quantitative"},
+        "text": {
+          "field": "workshops_per_100_schools",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    }
+  ],
+  "config": {}
+}
